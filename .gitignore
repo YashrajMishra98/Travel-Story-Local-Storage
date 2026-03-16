@@ -26,7 +26,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # Ignore everything inside the uploads folder
-/uploads/*
-
-# But keep the folder itself by not ignoring a placeholder file
-!/uploads/.gitkeep
+uploads/
