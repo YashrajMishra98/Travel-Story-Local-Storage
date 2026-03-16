@@ -19,7 +19,6 @@ const ImageSelector = ({ image, setImage, handleDeleteImg }) => {
     setImage(null);
     handleDeleteImg();
   };
- console.log(image)
   useEffect(() => {
     if(typeof image === "string"){
       setPreviewUrl(image);
