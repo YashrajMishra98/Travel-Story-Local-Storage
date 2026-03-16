@@ -425,5 +425,3 @@ app.get("/travel-stories/filter", authenticateToken, async (req, res) => {
         });
     }
 });
-
-module.exports = app;
