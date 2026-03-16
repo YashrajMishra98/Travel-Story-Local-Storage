@@ -22,7 +22,7 @@ cloudinary.config({
 });
 // ------------------------------
 
-mongoose.connect(config.connectionString)
+mongoose.connect(process.env.MONGODB_URI)
 .then(() => {
     console.log("MongoDB connected");
 
