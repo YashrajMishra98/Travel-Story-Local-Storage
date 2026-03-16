@@ -86,6 +86,11 @@ if (!mongoURI) {
     });
 }
 
+// Test Root Route
+app.get("/", (req, res) => {
+    res.send("Hello Yashraj! The Safarnama API is running perfectly.");
+});
+
 // Create Account
 app.post("/login", async(req, res) => {
     const {email, password} = req.body;
