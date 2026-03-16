@@ -1,3 +1,43 @@
+// const mongoose = require('mongoose');
+// const bcrypt = require('bcrypt');
+// const express = require('express');
+// const cors = require('cors');
+// const jwt = require('jsonwebtoken');
+// const User = require('./models/user.model');
+// const TravelStory = require('./models/travelStory.model');
+// const { authenticateToken } = require('./utilities');
+// const upload = require('./multer');
+// const path = require('path');
+// const fs = require('fs');
+// // ADD THESE LINES FOR CLOUDINARY
+// const cloudinary = require('cloudinary').v2;
+
+// cloudinary.config({
+//   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+//   api_key: process.env.CLOUDINARY_API_KEY,
+//   api_secret: process.env.CLOUDINARY_API_SECRET
+// });
+// // ------------------------------
+
+// mongoose.connect(process.env.MONGODB_URI)
+// .then(() => {
+//     console.log("MongoDB connected");
+
+//     const PORT = process.env.PORT || 8000;
+//     app.listen(PORT, () => {
+//         console.log(`Server running on port ${PORT}`);
+//     });
+// })
+// .catch(err => {
+//     console.error("MongoDB connection failed:", err);
+// });
+
+// const app = express();
+// app.use(express.json());
+// app.use(cors({ origin:"*" }));
+
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const express = require('express');
@@ -9,6 +49,12 @@ const { authenticateToken } = require('./utilities');
 const upload = require('./multer');
 const path = require('path');
 const fs = require('fs');
+
+// 1. Initialize Express FIRST so it's ready immediately
+const app = express();
+app.use(express.json());
+app.use(cors({ origin:"*" }));
+
 // ADD THESE LINES FOR CLOUDINARY
 const cloudinary = require('cloudinary').v2;
 
@@ -19,22 +65,26 @@ cloudinary.config({
 });
 // ------------------------------
 
-mongoose.connect(process.env.MONGODB_URI)
-.then(() => {
-    console.log("MongoDB connected");
-
-    const PORT = process.env.PORT || 8000;
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
-    });
-})
-.catch(err => {
-    console.error("MongoDB connection failed:", err);
+// 2. Start the server immediately (Do not wait for the database)
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+    console.log(`Server is ALIVE and running on port ${PORT}`);
 });
 
-const app = express();
-app.use(express.json());
-app.use(cors({ origin:"*" }));
+// 3. Connect to MongoDB safely
+const mongoURI = process.env.MONGODB_URI;
+
+if (!mongoURI) {
+    console.error("❌ CRITICAL ERROR: MONGODB_URI is completely missing from environment variables!");
+} else {
+    mongoose.connect(mongoURI)
+    .then(() => {
+        console.log("✅ MongoDB successfully connected!");
+    })
+    .catch(err => {
+        console.error("❌ MongoDB connection failed:", err.message);
+    });
+}
 
 // Create Account
 app.post("/login", async(req, res) => {
