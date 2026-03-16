@@ -1,0 +1,26 @@
+# Dependencies - catches all node_modules at any level
+node_modules/
+**/node_modules/
+
+# Environment / Secrets
+.env
+.env.local
+.env.*.local
+
+# Production Builds (Vite uses 'dist')
+dist/
+build/
+bin/
+obj/
+
+# Vite / IDE / System
+.vite/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
