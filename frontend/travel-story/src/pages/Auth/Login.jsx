@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import PasswordInput from "../../components/Input/PasswordInput";
+import PasswordInput from "../../components/Input/PasswordInput.jsx";
 import { useNavigate } from "react-router-dom";
-import { validateEmail } from "../../utils/helper";
-import axiosInstance from "../../utils/axiosInstance";
+import { validateEmail } from "../../utils/helper.js";
+import axiosInstance from "../../utils/axiosInstance.js";
 
 const Login = () => {
   const [email, setEmail] = useState("");

@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfileInfo from './Cards/ProfileInfo'
+import ProfileInfo from './Cards/ProfileInfo.jsx'
 import LOGO from "../assets/images/logo.png";
 import { useNavigate } from 'react-router-dom';
 

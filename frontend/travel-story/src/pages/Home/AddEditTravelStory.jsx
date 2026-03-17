@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { ToastContainer, toast } from "react-toastify";
-import axiosInstance from "../../utils/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance.js";
 import { MdAdd, MdDeleteOutline, MdUpdate, MdClose } from "react-icons/md";
-import DateSelector from "../../components/Input/DateSelector";
-import ImageSelector from "../../components/Input/ImageSelector";
-import TagInput from "../../components/Input/TagInput";
-import uploadImage from "../../utils/uploadImage";
+import DateSelector from "../../components/Input/DateSelector.jsx";
+import ImageSelector from "../../components/Input/ImageSelector.jsx";
+import TagInput from "../../components/Input/TagInput.jsx";
+import uploadImage from "../../utils/uploadImage.js";
 
 const AddEditTravelStory = ({
   storyInfo,

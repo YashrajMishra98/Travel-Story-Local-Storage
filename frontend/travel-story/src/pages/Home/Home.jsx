@@ -1,16 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar.jsx";
 import { useNavigate } from "react-router-dom";
-import AddEditTravelStory from "./AddEditTravelStory";
+import AddEditTravelStory from "./AddEditTravelStory.jsx";
 import {MdAdd} from "react-icons/md";
-import axiosInstance from "../../utils/axiosInstance";
-import TravelStoryCard from "../../components/Cards/TravelStoryCard";
+import axiosInstance from "../../utils/axiosInstance.js";
+import TravelStoryCard from "../../components/Cards/TravelStoryCard.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import Modal from "react-modal";
 import "react-toastify/dist/ReactToastify.css";
-import ViewTravelStory from "./ViewTravelStory";
-import EmptyCard from "../../components/Cards/EmptyCard";
+import ViewTravelStory from "./ViewTravelStory.jsx";
+import EmptyCard from "../../components/Cards/EmptyCard.jsx";
 import EmptyImg from "../../assets/images/add-story.png";
 
 const Home = () => {
